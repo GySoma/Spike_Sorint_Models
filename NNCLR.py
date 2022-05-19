@@ -3,7 +3,6 @@ import tensorflow as tf
 import tensorflow_probability as tfp
 from tensorflow import keras
 from tensorflow.keras import layers
-from NNCLR_data_generator import *
 import numpy as np
 import tensorflow.python.autograph as autograph
 
@@ -171,14 +170,6 @@ def encoder():
 
     return model
 
-def pathcer():
-    inp = tf.keras.layers.Input(width)
-    x = inp
-    x = tf.keras.layers.Reshape((-1, width))(x)
-    model = tf.keras.Model(inp,x,name="patcher")
-
-    return model
-
 """
 ## The NNCLR model for contrastive pre-training
 """
@@ -196,7 +187,6 @@ class NNCLR(keras.Model):
         self.contrastive_augmenter = augmenter(**contrastive_augmenter)
         self.classification_augmenter = augmenter(**classification_augmenter)
         self.encoder = encoder()
-        self.patcher = pathcer()
         self.projection_head = keras.Sequential(
             [
                 layers.Input(shape=(width,)),
