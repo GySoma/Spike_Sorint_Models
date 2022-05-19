@@ -1,6 +1,6 @@
 The .._generator.py programs are used for creating tensorflow datasets from .tfrecord files. The imput images are croped or padded to the 128x64x1 size mentioned in the theses.
 The used packages can be applied with the packages.yml file using the Anaconda environment. 
-Used packages and their version:
+Used packages and their versions:
 # Name                    Version                   Build  Channel
 _tflow_select             2.1.0                       gpu
 abseil-cpp                20210324.2           hd77b12b_0
